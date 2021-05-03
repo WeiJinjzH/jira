@@ -1,9 +1,6 @@
-import { useState } from 'react'
+import React from 'react';
 
-export const SearchPanel = () => {
-    const [param, setParam] = useState({ name: '', personId: '' })
-    const [users, setUsers] = useState([])
-
+const SearchPanel = ({ param, setParam, users }) => {
     return (
         <form action="">
             <div>
@@ -19,4 +16,5 @@ export const SearchPanel = () => {
             </div>
         </form>
     )
-}
+};
+export default SearchPanel;
