@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import qs from 'qs';
-import { cleanObject } from '../../utils';
+import { cleanObject, useMount } from '../../utils';
 import List from './list';
 import SearchPanel from './search-panel';
 
@@ -20,13 +20,13 @@ const ProjectListScreen = () => {
         })
     }, [param]);
 
-    useEffect(() => {
+    useMount(() => {
         fetch(`${apiUrl}/users`).then(async response => {
             if (response.ok) {
                 setUsers(await response.json())
             }
         })
-    }, []);
+    });
 
     return (
         <div>
