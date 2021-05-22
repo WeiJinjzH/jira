@@ -14,13 +14,13 @@ export const cleanObject = (object: any) => {
   return result;
 };
 
-export const useMount = (callback: any) => {
+export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
   }, []);
 };
 
-export const useDebounce = (value: any, delay: any) => {
+export const useDebounce = (value: any, delay: number) => {
   const [debouncedValue, setDebouncevalue] = useState(value);
 
   useEffect(() => {
