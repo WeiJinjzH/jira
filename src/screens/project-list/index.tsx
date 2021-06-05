@@ -1,6 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { Form, Input } from "antd";
+import React, { useEffect, useState } from "react";
 import qs from "qs";
 import { cleanObject, useMount, useDebounce } from "../../utils";
 import List from "./list";
@@ -32,40 +30,10 @@ const ProjectListScreen = () => {
     });
   });
 
-  const handleInvitationCode = (rule: any, value: any, callback: any) => {
-    // 短信邀请码
-    fetch(`${apiUrl}/users11`)
-      .then((res) => {
-        if (res.ok) {
-          console.log(1);
-          callback();
-        } else {
-          callback(new Error("11182939231"));
-        }
-      })
-      .catch((error) => {
-        callback("2222");
-      });
-  };
-
   return (
     <div>
       <SearchPanel param={param} setParam={setParam} users={users} />
       <List list={list} users={users} />
-      <Form>
-        <Form.Item
-          label="Input"
-          name="Input"
-          rules={[
-            { message: "111" },
-            {
-              validator: handleInvitationCode,
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-      </Form>
     </div>
   );
 };
